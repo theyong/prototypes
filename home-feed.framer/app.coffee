@@ -89,10 +89,10 @@ allLayers = []
 # Generate a set of layers
 for i in [0...5]
 	layer = new Layer 
-		backgroundColor: "#fff", borderRadius: 8
-		image: "images/card.png", opacity: 1
-		width: scroll.width - 48, height: 440 
-		x: 24, y: (height + margin) * i 
+		backgroundColor: "#fff", borderRadius: 8,
+		image: "images/card.png", opacity: 1,
+		width: scroll.width - 48, height: 440,
+		x: 24, y: (height + margin) * i,
 		superLayer: scroll.content
 		
 	layer.style = "font-size":"48px", "font-weight":"300", "color":"#333", "lineHeight":"#{height}px", "box-shadow":"0 3px 6px rgba(0,0,0,0.1)"
