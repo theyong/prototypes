@@ -1,20 +1,32 @@
-layerB = new Layer
+background = new Layer
 	width: 750
 	height: 1334
+	backgroundColor: "#eee"
+	
+topBar = new Layer
+	width: 750
+	height: 130
 	backgroundColor: "rgba(234,70,74,1)"
 	
 no_more = new Layer
-	width: 326
-	height: 383
+	width: 311
+	height: 344
 	image: "images/no more.png"
-	x: 212
-	y: 379
+	x: Align.center
+	y: 333
+	
+load_more = new Layer
+	width: 230
+	height: 80
+	image: "images/load more.png"
+	x: Align.center
+	y: 779
 
 ballot_logo_3x = new Layer
-	width: 116
-	height: 117
+	width: 80
+	height: 80
 	image: "images/ballot logo@3x.png"
-	x: 317
+	x: Align.center
 	y: 26
 
 layerC = new Layer
@@ -44,20 +56,49 @@ search = new Layer
 	y: 1242
 	x: 345
 
+blankCard = new Layer
+	width: 670
+	height: 860
+	y: Align.center
+	x: Align.center
+	backgroundColor: "rgba(255,255,255,1)"
+	borderRadius: 10
+	shadowSpread: 1
+	shadowColor: "rgba(123,123,123,0.15)"
+	shadowY: 4
+	shadowBlur: 10
+
 Due_ProcessB = new Layer
-	width: 752
-	height: 951
+	width: 700
+	height: 885
 	image: "images/Due Process.png"
-	y: 190
+	y: Align.center
+	x: Align.center
 
 MedicareB = new Layer
-	width: 752
-	height: 951
+	width: 700
+	height: 885
 	image: "images/Medicare.png"
 	y: 210
+	x: Align.center
 
+layers = [MedicareB, Due_ProcessB, blankCard, blankCard, blankCard]
 
-layers = [MedicareB, Due_ProcessB]
+count = new Layer
+	width: 60
+	height: 60
+	y: 1115
+	x: 340
+	html: layers.length
+	opacity: .7
+	backgroundColor: "rgba(15,93,173,1)"
+	borderRadius: 100
+count.style =
+	textAlign: 'center'
+	verticalAlign: 'center'
+	fontSize: '1.2em',
+	fontWeight: '700'
+	lineHeight: 1.8
 
 for layer in layers
 	layer.draggable.vertical = false
@@ -77,10 +118,12 @@ for layer in layers
 			this.animate 
 				properties: {x: Screen.width * directionFactor}
 				time: 0.2
-			
+			if (count.html - 1) == 0
+				count.opacity = 0
+			count.html = count.html - 1
 			Utils.delay 0.2, => this.destroy()
 					
-			for layer in allLayers	
+			for layer in layers
 				# If we're removing one of the last layers
 				if endAnimation
 					Utils.delay 0.2, ->
