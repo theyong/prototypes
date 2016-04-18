@@ -89,7 +89,6 @@ allLayers = []
 # Generate a set of layers
 for i in [0...5]
 	layer = new Layer 
-		backgroundColor: "#fff"
 		borderRadius: 8
 		image: "images/card.png"
 		opacity: 1
