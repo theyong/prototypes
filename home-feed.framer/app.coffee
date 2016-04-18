@@ -90,7 +90,7 @@ allLayers = []
 for i in [0...5]
 	layer = new Layer 
 		borderRadius: 8
-		image: "images/card.png"
+		image: "images/bill-card.png"
 		opacity: 1
 		width: scroll.width - 48
 		height: 440,
