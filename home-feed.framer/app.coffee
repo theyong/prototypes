@@ -81,7 +81,7 @@ scroll.content.draggable.bounceOptions =
 
 # Define Scroll Content
 height = 400
-margin = 60
+margin = 250
 
 # Array that will store our layers
 allLayers = []
@@ -89,16 +89,15 @@ allLayers = []
 # Generate a set of layers
 for i in [0...5]
 	layer = new Layer 
-		borderRadius: 8
-		image: "images/bill-card.png"
+		image: "images/card2.png"
 		opacity: 1
 		width: scroll.width - 48
-		height: 440,
+		height: 637,
 		x: 24
 		y: (height + margin) * i
 		superLayer: scroll.content
 		
-	layer.style = "font-size":"48px", "font-weight":"300", "color":"#333", "lineHeight":"#{height}px", "box-shadow":"0 3px 6px rgba(0,0,0,0.1)"
+	layer.style = "font-size":"48px", "font-weight":"300", "color":"#333", "lineHeight":"#{height}px"
 	
 	allLayers.push(layer)
 
